@@ -2,11 +2,16 @@
 
 > A Vue.js project
 
-##First Install Node
-Use Nvm is very simple and convenient;
+## First Install Node
+
+``` bash
+# install env
+Use nvm is very simple and convenient;
 
 install nrm set npm source to taobao
 npm install -g nrm
+nrm ls
+```
 
 ## Build Setup
 
@@ -14,7 +19,7 @@ npm install -g nrm
 # install dependencies
 墙内先跑下命令安装phantomjs-prebuilt
   PHANTOMJS_CDNURL=https://npm.taobao.org/dist/phantomjs npm install phantomjs-prebuilt --registry=https://registry.npm.taobao.org --no-proxy
-  
+
 npm install
 
 # serve with hot reload at localhost:8080
