@@ -6,7 +6,7 @@
       <!--
         you can use custom content here to overwrite
         default content
-      -->
+
       <h3 slot="header">custom header</h3>
       <h3 slot="body">custom body</h3>
       <h3 slot="footer">custom footer
@@ -15,18 +15,39 @@
           确定
         </button>
       </h3>
+      -->
     </modal>
   </div>
+  <form id="search">
+    Search <input name="query" v-model="searchQuery">
+  </form>
+  <grid
+    :data="gridData"
+    :columns="gridColumns"
+    :filter-key="searchQuery">
+  </grid>
 </template>
 
 <script>
 import Modal from './components/Modal';
+import Grid from './components/Grid';
 
 export default {
-  components: { Modal },
+  components: {
+    Modal,
+    Grid,
+  },
   data() {
     return {
-      showModal: true,
+      showModal: false,
+      searchQuery: '',
+      gridColumns: ['name', 'power'],
+      gridData: [
+        { name: 'Chuck Norris', power: Infinity },
+        { name: 'Bruce Lee', power: 9000 },
+        { name: 'Jackie Chan', power: 7000 },
+        { name: 'Jet Li', power: 8000 },
+      ],
     };
   },
 };
@@ -37,15 +58,7 @@ body {
   font-family: Menlo, Consolas, monospace;
   color: #444;
 }
-.item {
-  cursor: pointer;
-}
-.bold {
-  font-weight: bold;
-}
-ul {
-  padding-left: 1em;
-  line-height: 1.5em;
-  list-style-type: dot;
+#app {
+  padding-bottom: 50px;
 }
 </style>
